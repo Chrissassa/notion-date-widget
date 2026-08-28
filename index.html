@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Ballet&family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: transparent;
+
+}
+
+
+/* CARTE */
+
+.widget {
+
+    width: 520px;
+
+    padding: 48px 35px;
+
+    text-align: center;
+
+    border-radius: 32px;
+
+    background: linear-gradient(
+        145deg,
+        #fffaf7,
+        #fdf1f5
+    );
+
+    border: 1px solid rgba(190,150,160,0.20);
+
+    box-shadow:
+        0 15px 45px rgba(130,90,100,0.12);
+
+}
+
+
+/* PETITES FLEURS */
+
+.decor {
+
+    font-size: 20px;
+
+    letter-spacing: 12px;
+
+    color: #c69aa8;
+
+    margin-bottom: 5px;
+
+}
+
+
+/* TITRE */
+
+.titre {
+
+    font-family: "Ballet", cursive;
+
+    font-size: 78px;
+
+    font-weight: 400;
+
+    color: #9b6d7d;
+
+    line-height: 1;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* DATE */
+
+.date {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    color: #4d4245;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    line-height: 1.4;
+
+}
+
+
+/* HEURE */
+
+.heure {
+
+    margin-top: 25px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 58px;
+
+    font-weight: 500;
+
+    color: #9b6d7d;
+
+    letter-spacing: 5px;
+
+}
+
+
+/* PETITE PHRASE */
+
+.mood {
+
+    margin-top: 18px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 15px;
+
+    font-style: italic;
+
+    color: #a98791;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="widget">
+
+    <div class="decor">
+        ✿ ˚ ༘ ✿
+    </div>
+
+
+    <div class="titre">
+        Aujourd'hui
+    </div>
+
+
+    <div class="date" id="date">
+    </div>
+
+
+    <div class="heure" id="heure">
+    </div>
+
+
+    <div class="mood">
+        une nouvelle journée commence ♡
+    </div>
+
+</div>
+
+
+<script>
+
+function afficherDate() {
+
+    const maintenant = new Date();
+
+
+    const options = {
+
+        weekday: "long",
+
+        day: "numeric",
+
+        month: "long",
+
+        year: "numeric"
+
+    };
+
+
+    document.getElementById("date").textContent =
+
+        maintenant.toLocaleDateString(
+            "fr-FR",
+            options
+        );
+
+
+    document.getElementById("heure").textContent =
+
+        maintenant.toLocaleTimeString(
+            "fr-FR",
+            {
+
+                hour: "2-digit",
+
+                minute: "2-digit"
+
+            }
+
+        );
+
+}
+
+
+afficherDate();
+
+
+setInterval(
+
+    afficherDate,
+
+    1000
+
+);
+
+</script>
+
+
+</body>
+
+</html>
